@@ -1,0 +1,31 @@
+{
+	"name": "DS_filesystem_copy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Onprem_Source",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"ds_param": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"folderPath": {
+					"value": "@dataset().ds_param",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
